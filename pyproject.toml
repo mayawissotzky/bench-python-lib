@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68,<76", "wheel==0.43.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tabfmt"
+version = "0.4.2"
+description = "Render lists of dicts as aligned plain-text, Markdown or CSV tables."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "tabfmt maintainers" }]
+requires-python = ">=3.8,<4"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "wcwidth~=0.2.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/mayawissotzky/bench-python-lib"
+Issues = "https://github.com/mayawissotzky/bench-python-lib/issues"
+
+[project.optional-dependencies]
+http = [
+    "requests>=2.20",
+]
+cli = [
+    "click==8.1.7",
+]
+dev = [
+    "pytest==8.2.2",
+    "build==1.2.1",
+    "twine==5.1.0",
+    "ruff==0.5.0",
+    "colorama @ git+https://github.com/tartley/colorama.git@master",
+]
+
+[project.scripts]
+tabfmt = "tabfmt.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
